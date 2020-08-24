@@ -1,3 +1,7 @@
+html {
+  overflow-y: hidden;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   background: #f7f9fb;
@@ -49,7 +53,6 @@ form input {
 
 .card {
   width: 100%;
-  cursor: default;
 }
 
 .fa-circle {
