@@ -1,0 +1,131 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f7f9fb;
+}
+
+.sidebar {
+  position: fixed;
+  width: 51px;
+  background: #00214c;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
+}
+
+.header {
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/*Nav*/
+
+.col-sm-4 span {
+  color: #8898a6;
+}
+
+.badge {
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/*Cards*/
+
+.col-sm-12 {
+  min-height: 80vh;
+}
+
+form input {
+  border: 0;
+  outline: none;
+}
+
+.card {
+  width: 100%;
+  cursor: default;
+}
+
+.fa-circle {
+  color: #e6eaee;
+}
+
+.fa-plus {
+  cursor: pointer;
+}
+
+.fa-edit {
+  color: #e0c989;
+}
+
+.fa-edit.edit {
+  opacity: 0;
+  cursor: pointer;
+  color: rgb(116, 116, 236);
+}
+
+.fa-check-circle {
+  color: #58cc89;
+}
+
+.fa-trash {
+  opacity: 0;
+  cursor: pointer;
+  color: gray;
+}
+
+.card:hover .fa-trash,
+.card:hover .fa-edit.edit {
+  opacity: 1;
+}
+
+input {
+  width: 100%;
+}
+
+input[name="title"] {
+  width: 245px;
+  font-weight: bold;
+}
+
+input[name="title"]::-webkit-input-placeholder,
+input[name="modal-title"]::-webkit-input-placeholder {
+  color: #8898a6;
+  font-weight: bold;
+}
+
+/*Form*/
+
+textarea {
+  border: none;
+  resize: none;
+  width: 100%;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #8898a6;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.fa-times-circle {
+  padding-top: 65px;
+  cursor: pointer;
+  color: rgb(207, 90, 90);
+}
+
+.fas.fa-check-circle {
+  cursor: pointer;
+}
+
+.col-sm-2 .fa-plus {
+  padding-top: 65px;
+}
