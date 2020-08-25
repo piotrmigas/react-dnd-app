@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -5,6 +11,12 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   background: #f7f9fb;
+}
+
+.layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .sidebar {
@@ -17,33 +29,84 @@ body {
   z-index: 1;
 }
 
+.header {
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  font-weight: bold;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.container {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
   margin-right: auto;
   margin-left: auto;
   max-width: 1200px;
 }
 
-.header {
-  background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+.list {
+  min-height: 90vh;
 }
 
 /*Nav*/
 
-.col-sm-4 span {
+.add-task {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.add-task span {
   color: #8898a6;
 }
 
-.badge {
+.list-info {
+  font-weight: bold;
+}
+
+.button .badge {
+  float: right;
   cursor: pointer;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
 }
 
 /*Cards*/
 
-.col-sm-12 {
-  min-height: 80vh;
+.card {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: #fff;
+  margin-bottom: 16px;
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 form input {
@@ -51,12 +114,14 @@ form input {
   outline: none;
 }
 
-.card {
-  width: 100%;
+.icons {
+  display: grid;
+  justify-content: center;
 }
 
 .fa-circle {
   color: #e6eaee;
+  margin-bottom: 1rem;
 }
 
 .fa-plus {
@@ -64,10 +129,12 @@ form input {
 }
 
 .fa-edit {
+  margin-bottom: 1rem;
   color: #e0c989;
 }
 
 .fa-edit.edit {
+  align-self: center;
   opacity: 0;
   cursor: pointer;
   color: rgb(116, 116, 236);
@@ -75,12 +142,14 @@ form input {
 
 .fa-check-circle {
   color: #58cc89;
+  margin-bottom: 1rem;
 }
 
 .fa-trash {
   opacity: 0;
   cursor: pointer;
   color: gray;
+  align-self: end;
 }
 
 .card:hover .fa-trash,
@@ -90,11 +159,13 @@ form input {
 
 input {
   width: 100%;
+  font-family: "Montserrat";
 }
 
 input[name="title"] {
-  width: 245px;
+  width: 265px;
   font-weight: bold;
+  font-size: 1.17em;
 }
 
 input[name="title"]::-webkit-input-placeholder,
@@ -105,10 +176,17 @@ input[name="modal-title"]::-webkit-input-placeholder {
 
 /*Form*/
 
+.shadow {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
 textarea {
+  overflow-y: hidden;
+  font-family: "Montserrat";
   border: none;
   resize: none;
-  width: 100%;
+  width: 94%;
+  font-size: 1rem;
 }
 
 textarea::-webkit-input-placeholder {
@@ -120,7 +198,7 @@ textarea:focus {
 }
 
 .fa-times-circle {
-  padding-top: 65px;
+  align-self: end;
   cursor: pointer;
   color: rgb(207, 90, 90);
 }
@@ -129,6 +207,6 @@ textarea:focus {
   cursor: pointer;
 }
 
-.col-sm-2 .fa-plus {
-  padding-top: 65px;
+.form.fa-plus {
+  align-self: end;
 }

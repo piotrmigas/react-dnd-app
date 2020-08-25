@@ -20,11 +20,7 @@ const AddTask = ({ list, listId }) => {
       const icon = (
         <i
           className={
-            listId === "list-1"
-              ? "far fa-edit float-right"
-              : listId === "list-2"
-              ? "far fa-check-circle float-right pr-1"
-              : "far fa-circle float-right pr-1"
+            listId === "list-1" ? "far fa-edit" : listId === "list-2" ? "far fa-check-circle" : "far fa-circle"
           }
         />
       );
@@ -36,58 +32,46 @@ const AddTask = ({ list, listId }) => {
 
   return (
     <>
-      <div className="row align-items-center">
-        <div className="col-sm-6">
-          <h6 className="font-weight-bold my-3">
+      <div className="add-task">
+        <div className="list-info">
+          <h4>
             {list.title} <span>({list.tasks.length})</span>
-          </h6>
+          </h4>
         </div>
-        <div className="col-sm-6">
-          <span className="lead float-right">
-            <span className="badge badge-pill" onClick={() => setFormOpen(!formOpen)}>
-              Dodaj <i className={!formOpen ? "fas fa-plus" : "fas fa-minus"} />
-            </span>
+        <div className="button">
+          <span className="badge" onClick={() => setFormOpen(!formOpen)}>
+            Dodaj <i className={!formOpen ? "fas fa-plus" : "fas fa-minus"} />
           </span>
         </div>
       </div>
       <form className={formOpen ? "d-block" : "d-none"}>
-        <div className="card mb-3 shadow">
+        <div className="card shadow">
           <div className="card-body">
-            <div className="row">
-              <div className="col-sm-10">
-                <h5 className="card-title">
-                  <input
-                    name="title"
-                    autoComplete="off"
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Wpisz tytuł..."
-                  />
-                </h5>
-                <h6 className="card-subtitle text-muted">
-                  <textarea
-                    rows="3"
-                    cols="25"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                    placeholder="Tutaj wpisz opis..."
-                  />
-                </h6>
-              </div>
-              <div className="col-sm-2">
-                <i
-                  className={
-                    listId === "list-1"
-                      ? "far fa-edit float-right"
-                      : listId === "list-2"
-                      ? "far fa-check-circle float-right pr-1"
-                      : "far fa-circle float-right pr-1"
-                  }
-                />
-                <i className="fas fa-plus float-right pr-1" onClick={handleAddTask} />
-              </div>
-            </div>
+            <input
+              className="card-title"
+              name="title"
+              autoComplete="off"
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Wpisz tytuł..."
+            />
+            <textarea
+              className="card-subtitle"
+              rows="3"
+              cols="25"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Tutaj wpisz opis..."
+            />
+          </div>
+          <div className="icons">
+            <i
+              className={
+                listId === "list-1" ? "far fa-edit" : listId === "list-2" ? "far fa-check-circle" : "far fa-circle"
+              }
+            />
+            <i className="fas fa-plus form" onClick={handleAddTask} />
           </div>
         </div>
       </form>

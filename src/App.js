@@ -26,20 +26,18 @@ function App() {
   return (
     <>
       <div className="sidebar" />
-      <div className="main">
+      <main>
         <Header />
         <div className="wrapper">
           <DragDropContext onDragEnd={onDragEnd}>
-            <div className="row">
-              {listOrder.map((listId) => {
-                const list = lists[listId];
-                const listTasks = list.tasks.map((taskId) => tasks[taskId]);
-                return <List key={list.id} list={list} tasks={listTasks} />;
-              })}
-            </div>
+            {listOrder.map((listId) => {
+              const list = lists[listId];
+              const listTasks = list.tasks.map((taskId) => tasks[taskId]);
+              return <List key={list.id} list={list} tasks={listTasks} />;
+            })}
           </DragDropContext>
         </div>
-      </div>
+      </main>
     </>
   );
 }
