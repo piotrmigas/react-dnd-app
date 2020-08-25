@@ -12,7 +12,6 @@ const AddTask = ({ list, listId }) => {
 
   const handleAddTask = (e) => {
     e.preventDefault();
-
     if (title === "") {
       alert("Tytuł wymagany!");
     } else {
@@ -55,6 +54,9 @@ const AddTask = ({ list, listId }) => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Wpisz tytuł..."
+              onKeyPress={(e) => {
+                if (e.key === "Enter") e.preventDefault();
+              }}
             />
             <textarea
               className="card-subtitle"
@@ -71,7 +73,7 @@ const AddTask = ({ list, listId }) => {
                 listId === "list-1" ? "far fa-edit" : listId === "list-2" ? "far fa-check-circle" : "far fa-circle"
               }
             />
-            <i className="fas fa-plus form" onClick={handleAddTask} />
+            <i className="fas fa-plus form" type="button" onClick={handleAddTask} />
           </div>
         </div>
       </form>

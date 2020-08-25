@@ -32,6 +32,9 @@ const Task = ({ listId, task, index }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Wpisz tytuł..."
+            onKeyPress={(e) => {
+              if (e.key === "Enter") e.preventDefault();
+            }}
           />
           <textarea
             className="card-subtitle"
