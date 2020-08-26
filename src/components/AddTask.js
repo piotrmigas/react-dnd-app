@@ -2,31 +2,23 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addTask } from "../redux/actions/taskActions";
 import { v4 } from "uuid";
+import { useForm } from "react-hook-form";
 
 const AddTask = ({ list, listId }) => {
   const [formOpen, setFormOpen] = React.useState(false);
-  const [title, setTitle] = React.useState("");
-  const [content, setContent] = React.useState("");
+  const { register, handleSubmit, errors } = useForm();
 
   const dispatch = useDispatch();
 
-  const handleAddTask = (e) => {
-    e.preventDefault();
-    if (title === "") {
-      alert("Tytuł wymagany!");
-    } else {
-      const id = v4();
-      const icon = (
-        <i
-          className={
-            listId === "list-1" ? "far fa-edit" : listId === "list-2" ? "far fa-check-circle" : "far fa-circle"
-          }
-        />
-      );
-      dispatch(addTask(id, listId, title, content, icon));
-      setTitle("");
-      setContent("");
-    }
+  const onSubmit = ({ title, content }, e) => {
+    const id = v4();
+    const icon = (
+      <i
+        className={listId === "list-1" ? "far fa-edit" : listId === "list-2" ? "far fa-check-circle" : "far fa-circle"}
+      />
+    );
+    dispatch(addTask(id, listId, title, content, icon));
+    e.target.reset();
   };
 
   return (
@@ -43,7 +35,7 @@ const AddTask = ({ list, listId }) => {
           </span>
         </div>
       </div>
-      <form className={formOpen ? "d-block" : "d-none"}>
+      <form className={formOpen ? "d-block" : "d-none"} onSubmit={handleSubmit(onSubmit)}>
         <div className="card shadow">
           <div className="card-body">
             <input
@@ -51,20 +43,20 @@ const AddTask = ({ list, listId }) => {
               name="title"
               autoComplete="off"
               type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
               placeholder="Wpisz tytuł..."
               onKeyPress={(e) => {
                 if (e.key === "Enter") e.preventDefault();
               }}
+              ref={register({ required: true })}
             />
+            {errors.title && <span className="error">Pole wymagane</span>}
             <textarea
               className="card-subtitle"
               rows="3"
               cols="25"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
               placeholder="Tutaj wpisz opis..."
+              ref={register()}
+              name="content"
             />
           </div>
           <div className="icons">
@@ -73,7 +65,9 @@ const AddTask = ({ list, listId }) => {
                 listId === "list-1" ? "far fa-edit" : listId === "list-2" ? "far fa-check-circle" : "far fa-circle"
               }
             />
-            <i className="fas fa-plus form" type="button" onClick={handleAddTask} />
+            <button type="submit">
+              <i className="fas fa-plus form" />
+            </button>
           </div>
         </div>
       </form>

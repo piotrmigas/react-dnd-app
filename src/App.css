@@ -104,6 +104,10 @@ body {
   padding: 20px;
 }
 
+.card-body {
+  position: relative;
+}
+
 .card-title {
   font-weight: bold;
   margin-bottom: 5px;
@@ -180,6 +184,19 @@ input[name="modal-title"]::-webkit-input-placeholder {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+.error {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 2px;
+  left: 158px;
+}
+
+form span::before {
+  display: inline;
+  content: "⚠ ";
+}
+
 textarea {
   overflow-y: hidden;
   font-family: "Montserrat";
@@ -194,6 +211,15 @@ textarea::-webkit-input-placeholder {
 }
 
 textarea:focus {
+  outline: none;
+}
+
+.icons button {
+  background: transparent;
+  border: 0;
+}
+
+.icons button:focus {
   outline: none;
 }
 
