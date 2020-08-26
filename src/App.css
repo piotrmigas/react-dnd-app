@@ -11,6 +11,13 @@ html {
 body {
   font-family: "Montserrat", sans-serif;
   background: #f7f9fb;
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: none;
 }
 
 .layout {
