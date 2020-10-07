@@ -44,9 +44,6 @@ const AddTask = ({ list, listId }) => {
               autoComplete="off"
               type="text"
               placeholder="Wpisz tytuł..."
-              onKeyPress={(e) => {
-                if (e.key === "Enter") e.preventDefault();
-              }}
               ref={register({ required: true })}
             />
             {errors.title && <span className="error">Pole wymagane</span>}
