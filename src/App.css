@@ -102,6 +102,10 @@ body.fade-out {
 
 /*Cards*/
 
+.dropzone {
+  padding: 10px;
+}
+
 .card {
   display: grid;
   grid-template-columns: 90% 10%;

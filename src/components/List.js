@@ -8,7 +8,7 @@ const List = ({ list, tasks }) => (
     <AddTask list={list} listId={list.id} />
     <Droppable droppableId={list.id}>
       {(provided) => (
-        <div {...provided.droppableProps} ref={provided.innerRef}>
+        <div {...provided.droppableProps} ref={provided.innerRef} className="dropzone">
           {tasks.map((task, index) => (
             <Task key={task.id} task={task} index={index} listId={list.id} icon={list.icon} />
           ))}
