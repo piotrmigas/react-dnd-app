@@ -15,7 +15,7 @@ const initialState = {
     id: "list-2",
     tasks: ["task-4"],
     title: "Zrobione",
-    icon: "far fa-circle",
+    icon: "far fa-check-circle",
   },
 };
 

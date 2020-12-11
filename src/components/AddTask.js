@@ -12,8 +12,7 @@ const AddTask = ({ list, listId }) => {
 
   const onSubmit = ({ title, content }, e) => {
     const id = v4();
-    const icon = <i className={list.icon} />;
-    dispatch(addTask(id, listId, title, content, icon));
+    dispatch(addTask(id, listId, title, content, list.icon));
     e.target.reset();
     setForm(false);
   };
