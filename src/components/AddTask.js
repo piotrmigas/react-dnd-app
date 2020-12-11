@@ -5,7 +5,7 @@ import { v4 } from "uuid";
 import { useForm } from "react-hook-form";
 
 const AddTask = ({ list, listId }) => {
-  const [formOpen, setFormOpen] = React.useState(false);
+  const [form, setForm] = React.useState(false);
   const { register, handleSubmit, errors } = useForm();
 
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ const AddTask = ({ list, listId }) => {
     const icon = <i className={list.icon} />;
     dispatch(addTask(id, listId, title, content, icon));
     e.target.reset();
+    setForm(false);
   };
 
   return (
@@ -26,12 +27,12 @@ const AddTask = ({ list, listId }) => {
           </h4>
         </div>
         <div className="button">
-          <span className="badge" onClick={() => setFormOpen(!formOpen)}>
-            Dodaj <i className={!formOpen ? "fas fa-plus" : "fas fa-minus"} />
+          <span className="badge" onClick={() => setForm(!form)}>
+            Dodaj <i className={!form ? "fas fa-plus" : "fas fa-minus"} />
           </span>
         </div>
       </div>
-      <form className={formOpen ? "d-block" : "d-none"} onSubmit={handleSubmit(onSubmit)}>
+      <form className={form ? "d-block" : "d-none"} onSubmit={handleSubmit(onSubmit)}>
         <div className="card shadow">
           <div className="card-body">
             <input
