@@ -3,16 +3,19 @@ const initialState = {
     id: "list-0",
     tasks: ["task-0", "task-1"],
     title: "Do zrobienia",
+    icon: "far fa-circle",
   },
   "list-1": {
     id: "list-1",
     tasks: ["task-2", "task-3"],
     title: "W trakcie",
+    icon: "far fa-edit",
   },
   "list-2": {
     id: "list-2",
     tasks: ["task-4"],
     title: "Zrobione",
+    icon: "far fa-circle",
   },
 };
 

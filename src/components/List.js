@@ -10,7 +10,7 @@ const List = ({ list, tasks }) => (
       {(provided) => (
         <div {...provided.droppableProps} ref={provided.innerRef}>
           {tasks.map((task, index) => (
-            <Task key={task.id} task={task} index={index} listId={list.id} />
+            <Task key={task.id} task={task} index={index} listId={list.id} icon={list.icon} />
           ))}
           {provided.placeholder}
         </div>

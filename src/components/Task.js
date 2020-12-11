@@ -3,7 +3,7 @@ import { Draggable } from "react-beautiful-dnd";
 import { useDispatch } from "react-redux";
 import { deleteTask, updateTask } from "../redux/actions/taskActions";
 
-const Task = ({ listId, task, index }) => {
+const Task = ({ listId, task, index, icon }) => {
   const [isEditing, setIsEditing] = React.useState(false);
   const [title, setTitle] = React.useState(task.title);
   const [content, setContent] = React.useState(task.content);
@@ -60,7 +60,7 @@ const Task = ({ listId, task, index }) => {
             <p className="card-subtitle">{task.content}</p>
           </div>
           <div className="icons">
-            {task.icon}
+            <i className={icon} />
             <i className="far fa-edit edit" onClick={() => setIsEditing(true)} />
             <i className="fas fa-trash" onClick={() => dispatch(deleteTask(task.id, listId))} />
           </div>

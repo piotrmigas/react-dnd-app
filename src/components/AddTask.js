@@ -12,11 +12,7 @@ const AddTask = ({ list, listId }) => {
 
   const onSubmit = ({ title, content }, e) => {
     const id = v4();
-    const icon = (
-      <i
-        className={listId === "list-1" ? "far fa-edit" : listId === "list-2" ? "far fa-check-circle" : "far fa-circle"}
-      />
-    );
+    const icon = <i className={list.icon} />;
     dispatch(addTask(id, listId, title, content, icon));
     e.target.reset();
   };
