@@ -4,10 +4,6 @@
   padding: 0;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
   font-family: "Montserrat", sans-serif;
   background: #f7f9fb;
@@ -20,20 +16,19 @@ body.fade-out {
   transition: none;
 }
 
-.layout {
+.wrapper {
   display: flex;
-  width: 100%;
-  min-height: 100vh;
 }
 
 .sidebar {
-  position: fixed;
-  width: 51px;
+  height: 100vh;
+  min-width: 51px;
   background: #00214c;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: 1;
+}
+
+.main-wrapper {
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .header {
@@ -42,25 +37,18 @@ body.fade-out {
   font-weight: bold;
   padding-top: 14px;
   padding-bottom: 14px;
+  padding-left: 25px;
 }
 
-.container {
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.wrapper {
+.app {
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 30px;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 1200px;
 }
 
 .list {
-  min-height: 90vh;
+  padding-left: 25px;
 }
 
 /*Nav*/

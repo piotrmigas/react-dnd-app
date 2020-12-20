@@ -2,9 +2,7 @@ import React from "react";
 
 const Header = () => (
   <div className="header">
-    <div className="container">
-      <h4>Lista zadań</h4>
-    </div>
+    <h4>Lista zadań</h4>
   </div>
 );
 

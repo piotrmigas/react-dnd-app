@@ -24,11 +24,11 @@ function App() {
   const tasks = useSelector((state) => state.task);
 
   return (
-    <>
+    <div className="wrapper">
       <div className="sidebar" />
-      <main>
+      <div className="main-wrapper">
         <Header />
-        <div className="wrapper">
+        <div className="app">
           <DragDropContext onDragEnd={onDragEnd}>
             {listOrder.map((listId) => {
               const list = lists[listId];
@@ -37,8 +37,8 @@ function App() {
             })}
           </DragDropContext>
         </div>
-      </main>
-    </>
+      </div>
+    </div>
   );
 }
 
