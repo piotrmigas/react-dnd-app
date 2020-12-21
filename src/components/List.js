@@ -4,7 +4,7 @@ import Task from "./Task";
 import AddTask from "./AddTask";
 
 const List = ({ list, tasks }) => (
-  <div className="list">
+  <div>
     <AddTask list={list} listId={list.id} />
     <Droppable droppableId={list.id}>
       {(provided) => (
